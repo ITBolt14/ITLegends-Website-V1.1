@@ -2,6 +2,11 @@ import { Menu, X, Code, Cloud, Shield, Zap, Users, TrendingUp, Mail, Phone, MapP
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ManagedITSupportPage from './pages/ManagedITSupport';
+import HardwareNetworkPage from './pages/HardwareNetwork';
+import CybersecurityPage from './pages/Cybersecurity';
+import CloudBackupPage from './pages/CloudBackup';
+import ServerMaintenancePage from './pages/ServerMaintenance';
+import HelpdeskPage from './pages/Helpdesk';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,6 +16,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />} />
         <Route path="/services/managed-it-support" element={<ManagedITSupportPage />} />
+        <Route path="/services/hardware-network" element={<HardwareNetworkPage />} />
+        <Route path="/services/cybersecurity" element={<CybersecurityPage />} />
+        <Route path="/services/cloud-backup" element={<CloudBackupPage />} />
+        <Route path="/services/server-maintenance" element={<ServerMaintenancePage />} />
+        <Route path="/services/helpdesk" element={<HelpdeskPage />} />
       </Routes>
     </BrowserRouter>
   );
