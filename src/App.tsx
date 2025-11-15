@@ -73,44 +73,44 @@ function Navigation({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
 
 function Hero() {
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 hero-gradient relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-itblue rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-10 w-96 h-96 bg-itred rounded-full blur-3xl"></div>
-      </div>
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3184654/pexels-photo-3184654.jpeg?auto=compress&cs=tinysrgb&w=1600')"
+        }}
+      ></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-6xl sm:text-7xl font-bold text-white leading-tight mb-6 text-glow">
-              Transforming Ideas Into Digital Excellence
-            </h1>
-            <p className="text-xl text-itsilver mb-8 leading-relaxed">
-              We build cutting-edge technology solutions that empower businesses to thrive in the digital age.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="btn-primary inline-flex items-center justify-center"
-              >
-                Get Started
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </a>
-              <a
-                href="#services"
-                className="btn-secondary inline-flex items-center justify-center"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-          <div className="relative floating">
-            <div className="aspect-square rounded-2xl tech-glass p-8 glow-red border-2 border-itred/30">
-              <div className="h-full w-full bg-gradient-to-br from-itblue/20 to-itred/20 rounded-xl flex items-center justify-center">
-                <Cpu className="h-32 w-32 text-itblue" />
-              </div>
-            </div>
-          </div>
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="flex items-center justify-center mb-6">
+          <Code className="h-12 w-12 text-itred" />
+          <span className="text-2xl font-bold text-white ml-3">IT Legends</span>
+        </div>
+
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-glow">
+          Providing You with LEGENDARY I.T. Services.
+        </h1>
+
+        <p className="text-lg sm:text-xl text-itsilver mb-12 leading-relaxed">
+          Empowering South African businesses with reliable I.T. solutions.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <a
+            href="#contact"
+            className="btn-primary inline-flex items-center justify-center"
+          >
+            Get Support
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </a>
+          <a
+            href="#services"
+            className="btn-secondary inline-flex items-center justify-center"
+          >
+            Our Services
+          </a>
         </div>
       </div>
     </section>
