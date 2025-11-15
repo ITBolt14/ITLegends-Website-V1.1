@@ -139,32 +139,38 @@ function OurServices() {
     {
       icon: Shield,
       title: 'Managed IT Support',
-      description: 'Proactive monitoring and support to keep your systems running smoothly 24/7.'
+      description: 'Proactive monitoring and support to keep your systems running smoothly 24/7.',
+      link: '/services/managed-it-support'
     },
     {
       icon: Cpu,
       title: 'Hardware & Network Setup',
-      description: 'Professional installation and configuration of enterprise-grade infrastructure.'
+      description: 'Professional installation and configuration of enterprise-grade infrastructure.',
+      link: '/services/hardware-network'
     },
     {
       icon: Shield,
       title: 'Cybersecurity & Protection',
-      description: 'Advanced threat detection and security measures to protect your business data.'
+      description: 'Advanced threat detection and security measures to protect your business data.',
+      link: '/services/cybersecurity'
     },
     {
       icon: Cloud,
       title: 'Cloud & Backup Solutions',
-      description: 'Secure cloud infrastructure and automated backup systems for business continuity.'
+      description: 'Secure cloud infrastructure and automated backup systems for business continuity.',
+      link: '/services/cloud-backup'
     },
     {
       icon: Zap,
       title: 'Server Maintenance & Monitoring',
-      description: 'Continuous server health monitoring and preventative maintenance services.'
+      description: 'Continuous server health monitoring and preventative maintenance services.',
+      link: '/services/server-maintenance'
     },
     {
       icon: Users,
       title: 'Helpdesk & Remote Assistance',
-      description: 'Expert technical support through remote assistance and dedicated helpdesk.'
+      description: 'Expert technical support through remote assistance and dedicated helpdesk.',
+      link: '/services/helpdesk'
     }
   ];
 
@@ -181,19 +187,21 @@ function OurServices() {
             const Icon = service.icon;
             const isRed = index % 2 === 0;
             return (
-              <div
+              <a
                 key={index}
-                className={`card-dark group cursor-pointer ${isRed ? 'glow-red border-itred/30 hover:border-itred/60' : 'glow-blue border-itblue/30 hover:border-itblue/60'}`}
+                href={service.link}
+                aria-label={`Learn more about ${service.title}`}
+                className={`card-dark group cursor-pointer ${isRed ? 'glow-red border-itred/30 hover:border-itred/60' : 'glow-blue border-itblue/30 hover:border-itblue/60'} block`}
               >
                 <div className={`w-16 h-16 ${isRed ? 'bg-itred/20 text-itred' : 'bg-itblue/20 text-itblue'} rounded-lg flex items-center justify-center mb-6`}>
                   <Icon className="h-8 w-8" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-itsilver text-sm mb-4">{service.description}</p>
-                <a href="#" className={`text-sm font-semibold ${isRed ? 'text-itred hover:text-itblue' : 'text-itblue hover:text-itred'} transition-colors`}>
+                <span className={`text-sm font-semibold ${isRed ? 'text-itred group-hover:text-itblue' : 'text-itblue group-hover:text-itred'} transition-colors`}>
                   Learn more
-                </a>
-              </div>
+                </span>
+              </a>
             );
           })}
         </div>
