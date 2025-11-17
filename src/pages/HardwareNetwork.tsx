@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { Code, ChevronRight, AlertCircle, CheckCircle, Target, Zap, Wrench } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HardwareNetworkPage() {
@@ -9,6 +9,7 @@ export default function HardwareNetworkPage() {
       <PainPoints />
       <OurSolution />
       <Benefits />
+      <Process />
       <ContentSection />
       <ServiceFooter />
     </div>
@@ -190,6 +191,61 @@ function Benefits() {
                 </div>
                 <h3 className="text-lg font-bold text-white mb-3">{benefit.title}</h3>
                 <p className="text-itsilver text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Process() {
+  const steps = [
+    {
+      title: 'Plan',
+      description: 'We assess your space, users, and requirements.',
+      icon: Target,
+      number: '01'
+    },
+    {
+      title: 'Deploy',
+      description: 'We install and configure all hardware and network equipment.',
+      icon: Zap,
+      number: '02'
+    },
+    {
+      title: 'Optimise',
+      description: 'We test, fine-tune, and document your setup for future changes.',
+      icon: Wrench,
+      number: '03'
+    }
+  ];
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Our Process</h2>
+          <div className="section-divider mb-8"></div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div key={index} className="relative">
+                <div className="card-dark glow-blue border-itblue/30">
+                  <div className="text-5xl font-bold text-itblue/20 mb-4">{step.number}</div>
+                  <div className="w-12 h-12 bg-itblue/20 rounded-full flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-itblue" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-itsilver text-sm leading-relaxed">{step.description}</p>
+                </div>
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-itblue to-transparent"></div>
+                )}
               </div>
             );
           })}
