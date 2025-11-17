@@ -200,17 +200,17 @@ function Process() {
     {
       number: 1,
       title: 'Assess',
-      description: 'We review your current IT setup and identify gaps.'
+      description: 'We review your current I.T. environment and risks.'
     },
     {
       number: 2,
       title: 'Implement',
-      description: 'We deploy monitoring tools and support systems.'
+      description: 'We roll out best-practice tools, monitoring, and support processes.'
     },
     {
       number: 3,
       title: 'Maintain',
-      description: 'We provide ongoing support and proactive maintenance.'
+      description: 'We provide ongoing support, updates, and optimisation.'
     }
   ];
 
@@ -222,19 +222,40 @@ function Process() {
           <div className="section-divider mb-8"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="card-dark glow-red border-itred/30 relative"
-            >
-              <div className="absolute -top-6 left-6 w-12 h-12 bg-gradient-to-br from-itred to-itblue rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                {step.number}
+        <div className="max-w-5xl mx-auto">
+          <div className="hidden md:grid md:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-12 left-1/2 w-full h-1 bg-gradient-to-r from-itred to-transparent transform translate-y-0"></div>
+                )}
+                <div className="card-dark glow-red border-itred/30 relative">
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-itred to-itblue rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    {step.number}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 mt-2">{step.title}</h3>
+                  <p className="text-itsilver leading-relaxed">{step.description}</p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 mt-2">{step.title}</h3>
-              <p className="text-itsilver leading-relaxed">{step.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="md:hidden space-y-6">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                {index < steps.length - 1 && (
+                  <div className="absolute left-6 top-12 w-1 h-6 bg-gradient-to-b from-itred to-transparent"></div>
+                )}
+                <div className="card-dark glow-red border-itred/30 relative pl-16">
+                  <div className="absolute -left-6 -top-6 w-12 h-12 bg-gradient-to-br from-itred to-itblue rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    {step.number}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-itsilver leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
