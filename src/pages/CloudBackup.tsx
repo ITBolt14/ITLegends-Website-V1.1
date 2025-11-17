@@ -1,4 +1,4 @@
-import { Code, ChevronRight } from 'lucide-react';
+import { Code, ChevronRight, Shield, CheckCircle, Globe, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 
 export default function CloudBackupPage() {
@@ -11,6 +11,7 @@ export default function CloudBackupPage() {
         buttonText="Request a Cloud Consultation"
       />
       <ContentSection />
+      <Benefits />
       <ServiceFooter />
     </div>
   );
@@ -154,6 +155,61 @@ function ContentSection() {
         </div>
       </section>
     </>
+  );
+}
+
+function Benefits() {
+  const benefits = [
+    {
+      icon: Shield,
+      title: 'Data Security',
+      description: 'Encrypted cloud storage protects sensitive information.'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Peace of Mind',
+      description: 'Automatic backups ensure your files are always safe.'
+    },
+    {
+      icon: Globe,
+      title: 'Remote Access',
+      description: 'Access data easily from anywhere, anytime.'
+    },
+    {
+      icon: RefreshCw,
+      title: 'Disaster Recovery',
+      description: 'Fast restore options in case of data loss.'
+    }
+  ];
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Benefits</h2>
+          <div className="section-divider mb-8"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+            const isRed = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                className={`card-dark ${isRed ? 'glow-red border-itred/30' : 'glow-blue border-itblue/30'} flex flex-col items-center text-center`}
+              >
+                <div className={`w-12 h-12 ${isRed ? 'bg-itred/20' : 'bg-itblue/20'} rounded-full flex items-center justify-center mb-4`}>
+                  <Icon className={`h-6 w-6 ${isRed ? 'text-itred' : 'text-itblue'}`} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{benefit.title}</h3>
+                <p className="text-itsilver text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
 
