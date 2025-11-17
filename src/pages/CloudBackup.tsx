@@ -13,6 +13,7 @@ export default function CloudBackupPage() {
       <ContentSection />
       <Benefits />
       <Process />
+      <CTA />
       <ServiceFooter />
     </div>
   );
@@ -265,6 +266,28 @@ function Process() {
             );
           })}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CTA() {
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-itred/10 to-itblue/10 border-y border-itgray2">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          Protect your data with reliable cloud solutions.
+        </h2>
+        <p className="text-lg text-itsilver mb-8">
+          Let's secure your files and keep your business resilient.
+        </p>
+        <a
+          href="/#contact"
+          className="btn-primary inline-flex items-center justify-center"
+        >
+          Secure My Data
+          <ChevronRight className="ml-2 h-5 w-5" />
+        </a>
       </div>
     </section>
   );
