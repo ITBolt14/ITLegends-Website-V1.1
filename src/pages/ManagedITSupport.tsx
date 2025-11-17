@@ -114,9 +114,9 @@ function PainPoints() {
 
 function OurSolution() {
   const solutions = [
-    'Proactive monitoring catches issues before they escalate',
-    'Remote & onsite support available when you need it',
-    'Flat-fee pricing keeps your IT budget predictable'
+    '24/7 remote and onsite support for your team.',
+    'Proactive monitoring and maintenance to prevent issues before they happen.',
+    'Clear SLAs and managed support plans tailored to your business size.'
   ];
 
   return (
@@ -127,20 +127,18 @@ function OurSolution() {
           <div className="section-divider mb-8"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <ul className="space-y-4">
-            {solutions.map((solution, index) => (
-              <li
-                key={index}
-                className="card-dark glow-blue border-itblue/30 flex items-center gap-4"
-              >
-                <div className="w-8 h-8 bg-itblue/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="h-5 w-5 text-itblue" />
-                </div>
-                <p className="text-itsilver text-base">{solution}</p>
-              </li>
-            ))}
-          </ul>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {solutions.map((solution, index) => (
+            <div
+              key={index}
+              className="card-dark glow-blue border-itblue/30 flex flex-col items-center text-center"
+            >
+              <div className="w-12 h-12 bg-itblue/20 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle className="h-6 w-6 text-itblue" />
+              </div>
+              <p className="text-itsilver text-base leading-relaxed">{solution}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
