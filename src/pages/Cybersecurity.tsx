@@ -7,6 +7,7 @@ export default function CybersecurityPage() {
       <ServiceNavigation />
       <ServiceHero title="Cybersecurity & Protection" subtitle="Shield your business from cyber threats, data breaches, and ransomware." buttonText="Request a Security Assessment" />
       <ContentSection />
+      <FinalCTA />
       <ServiceFooter />
     </div>
   );
@@ -239,6 +240,39 @@ function ContentSection() {
         </div>
       </section>
     </>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1600')"
+        }}
+      ></div>
+
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight text-glow">
+          Ready to protect your business from cyber threats?
+        </h2>
+
+        <p className="text-lg text-itsilver mb-8">
+          Let IT Legends secure your systems and data.
+        </p>
+
+        <a
+          href="/#contact"
+          className="btn-primary inline-flex items-center justify-center"
+        >
+          Get Protected Today
+          <ChevronRight className="ml-2 h-5 w-5" />
+        </a>
+      </div>
+    </section>
   );
 }
 
