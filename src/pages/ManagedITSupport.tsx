@@ -81,9 +81,9 @@ function ServiceHero() {
 
 function PainPoints() {
   const painPoints = [
-    'Downtime costs money and disrupts operations',
-    'Slow response times leave problems unresolved',
-    'Recurring issues waste time and resources'
+    'Frequent downtime that disrupts staff and customers.',
+    'Slow response times from ad-hoc IT providers.',
+    'No clear visibility into the health of your I.T. systems.'
   ];
 
   return (
@@ -94,20 +94,18 @@ function PainPoints() {
           <div className="section-divider mb-8"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <ul className="space-y-4">
-            {painPoints.map((point, index) => (
-              <li
-                key={index}
-                className="card-dark glow-red border-itred/30 flex items-center gap-4"
-              >
-                <div className="w-8 h-8 bg-itred/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <AlertCircle className="h-5 w-5 text-itred" />
-                </div>
-                <p className="text-itsilver text-base">{point}</p>
-              </li>
-            ))}
-          </ul>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {painPoints.map((point, index) => (
+            <div
+              key={index}
+              className="card-dark glow-red border-itred/30 flex flex-col items-center text-center"
+            >
+              <div className="w-12 h-12 bg-itred/20 rounded-full flex items-center justify-center mb-4">
+                <AlertCircle className="h-6 w-6 text-itred" />
+              </div>
+              <p className="text-itsilver text-base leading-relaxed">{point}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
