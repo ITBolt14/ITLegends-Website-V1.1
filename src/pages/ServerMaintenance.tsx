@@ -11,6 +11,7 @@ export default function ServerMaintenancePage() {
       <Benefits />
       <Process />
       <ContentSection />
+      <CallToAction />
       <ServiceFooter />
     </div>
   );
@@ -271,6 +272,34 @@ function ContentSection() {
             Content coming soon. Our team is preparing comprehensive information about this service.
           </p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CallToAction() {
+  return (
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-itgray via-itdark to-itgray overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-itblue/5 to-itred/5"></div>
+      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-itblue/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-itred/10 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+          Keep your servers running at peak performance.
+        </h2>
+
+        <p className="text-lg sm:text-xl text-itsilver mb-10 leading-relaxed">
+          Let's maintain and monitor your entire server environment.
+        </p>
+
+        <a
+          href="/#contact"
+          className="btn-primary inline-flex items-center justify-center"
+        >
+          Schedule a Maintenance Review
+          <ChevronRight className="ml-2 h-5 w-5" />
+        </a>
       </div>
     </section>
   );
