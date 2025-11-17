@@ -1,4 +1,4 @@
-import { Code, ChevronRight, Shield, Network, CheckCircle, AlertCircle } from 'lucide-react';
+import { Code, ChevronRight, Shield, Network, CheckCircle, AlertCircle, Zap, Lock, Eye } from 'lucide-react';
 import { useState } from 'react';
 
 export default function CybersecurityPage() {
@@ -183,6 +183,56 @@ function ContentSection() {
               <h3 className="text-xl font-bold text-white mb-3">Real-Time Monitoring</h3>
               <p className="text-itsilver">
                 Instant alerts and proactive threat prevention.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itgray">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">Our Process</h2>
+            <div className="section-divider mb-8"></div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="relative">
+              <div className="bg-itdark border border-itgray2 rounded-lg p-8 h-full">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-itblue/20 mb-6">
+                  <Zap className="h-7 w-7 text-itblue" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Evaluate</h3>
+                <p className="text-itsilver">
+                  We review your cybersecurity risks and vulnerabilities.
+                </p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <div className="w-8 h-0.5 bg-itgray2"></div>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-itblue rounded-full"></div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-itdark border border-itgray2 rounded-lg p-8 h-full">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-itblue/20 mb-6">
+                  <Lock className="h-7 w-7 text-itblue" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Secure</h3>
+                <p className="text-itsilver">
+                  We deploy protection tools and harden your systems.
+                </p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <div className="w-8 h-0.5 bg-itgray2"></div>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-itblue rounded-full"></div>
+              </div>
+            </div>
+            <div className="bg-itdark border border-itgray2 rounded-lg p-8">
+              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-itblue/20 mb-6">
+                <Eye className="h-7 w-7 text-itblue" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Monitor</h3>
+              <p className="text-itsilver">
+                We monitor continuously and respond proactively.
               </p>
             </div>
           </div>
