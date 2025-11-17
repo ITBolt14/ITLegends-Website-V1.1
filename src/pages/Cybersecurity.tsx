@@ -1,4 +1,4 @@
-import { Code, ChevronRight } from 'lucide-react';
+import { Code, ChevronRight, Shield, Network, CheckCircle, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function CybersecurityPage() {
@@ -145,6 +145,45 @@ function ContentSection() {
                   Ongoing monitoring, patching, and cybersecurity best practices.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">Benefits</h2>
+            <div className="section-divider mb-8"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-8 hover:border-itblue transition-colors">
+              <Shield className="h-12 w-12 text-itblue mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">Strong Protection</h3>
+              <p className="text-itsilver">
+                Defend your business from modern cyber threats.
+              </p>
+            </div>
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-8 hover:border-itblue transition-colors">
+              <Network className="h-12 w-12 text-itblue mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">Secure Network</h3>
+              <p className="text-itsilver">
+                Professional configuration reduces risk exposure.
+              </p>
+            </div>
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-8 hover:border-itblue transition-colors">
+              <CheckCircle className="h-12 w-12 text-itblue mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">Compliance Ready</h3>
+              <p className="text-itsilver">
+                Meet security requirements and safeguard client data.
+              </p>
+            </div>
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-8 hover:border-itblue transition-colors">
+              <AlertCircle className="h-12 w-12 text-itblue mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">Real-Time Monitoring</h3>
+              <p className="text-itsilver">
+                Instant alerts and proactive threat prevention.
+              </p>
             </div>
           </div>
         </div>
