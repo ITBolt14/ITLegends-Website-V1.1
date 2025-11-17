@@ -79,17 +79,42 @@ function ServiceHero({ title, subtitle, buttonText = "Request a Quote" }: Servic
 
 function ContentSection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Service Details</h2>
-          <div className="section-divider mb-8"></div>
-          <p className="text-lg text-itsilver max-w-2xl mx-auto">
-            Content coming soon. Our team is preparing comprehensive information about this service.
-          </p>
+    <>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">Pain Points</h2>
+            <div className="section-divider mb-8"></div>
+          </div>
+          <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto">
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-6">
+              <div className="flex gap-4">
+                <div className="text-itred text-2xl font-bold flex-shrink-0">•</div>
+                <p className="text-itsilver text-lg leading-relaxed">
+                  Increased cyberattacks targeting SMEs in South Africa.
+                </p>
+              </div>
+            </div>
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-6">
+              <div className="flex gap-4">
+                <div className="text-itred text-2xl font-bold flex-shrink-0">•</div>
+                <p className="text-itsilver text-lg leading-relaxed">
+                  Weak passwords and outdated software creating vulnerabilities.
+                </p>
+              </div>
+            </div>
+            <div className="bg-itgray/30 border border-itgray2 rounded-lg p-6">
+              <div className="flex gap-4">
+                <div className="text-itred text-2xl font-bold flex-shrink-0">•</div>
+                <p className="text-itsilver text-lg leading-relaxed">
+                  No real visibility into threats until it's too late.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
