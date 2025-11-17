@@ -148,20 +148,20 @@ function OurSolution() {
 function Benefits() {
   const benefits = [
     {
-      title: 'Fast Response',
-      description: 'We resolve issues quickly to minimize downtime.'
+      title: 'Faster Response',
+      description: 'Get help quickly from a dedicated support team.'
+    },
+    {
+      title: 'Less Downtime',
+      description: 'Proactive maintenance keeps systems stable and available.'
     },
     {
       title: 'Predictable Costs',
-      description: 'Fixed monthly pricing with no surprise bills.'
-    },
-    {
-      title: 'Better Uptime',
-      description: 'Proactive monitoring keeps systems running smoothly.'
+      description: 'Fixed monthly plans make IT budgeting easier.'
     },
     {
       title: 'Happier Staff',
-      description: 'Less IT frustration means more productivity.'
+      description: 'Your team can focus on work, not technical issues.'
     }
   ];
 
@@ -173,23 +173,19 @@ function Benefits() {
           <div className="section-divider mb-8"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => {
             const isRed = index % 2 === 0;
             return (
               <div
                 key={index}
-                className={`card-dark ${isRed ? 'glow-red border-itred/30' : 'glow-blue border-itblue/30'}`}
+                className={`card-dark ${isRed ? 'glow-red border-itred/30' : 'glow-blue border-itblue/30'} flex flex-col items-center text-center`}
               >
-                <div className="flex items-start gap-4">
-                  <div className={`w-8 h-8 ${isRed ? 'bg-itred/20' : 'bg-itblue/20'} rounded-full flex items-center justify-center flex-shrink-0 mt-1`}>
-                    <CheckCircle className={`h-5 w-5 ${isRed ? 'text-itred' : 'text-itblue'}`} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-itsilver text-sm">{benefit.description}</p>
-                  </div>
+                <div className={`w-12 h-12 ${isRed ? 'bg-itred/20' : 'bg-itblue/20'} rounded-full flex items-center justify-center mb-4`}>
+                  <CheckCircle className={`h-6 w-6 ${isRed ? 'text-itred' : 'text-itblue'}`} />
                 </div>
+                <h3 className="text-lg font-bold text-white mb-3">{benefit.title}</h3>
+                <p className="text-itsilver text-sm leading-relaxed">{benefit.description}</p>
               </div>
             );
           })}
