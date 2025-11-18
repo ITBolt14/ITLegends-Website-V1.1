@@ -6,8 +6,21 @@ export default function ContactPage() {
     <div className="min-h-screen bg-itdark text-itsilver">
       <Navigation />
       <Hero />
+      <GetInTouch />
       <Footer />
     </div>
+  );
+}
+
+function GetInTouch() {
+  return (
+    <section id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-12 text-center">
+          Get in Touch
+        </h2>
+      </div>
+    </section>
   );
 }
 
