@@ -13,12 +13,53 @@ export default function ContactPage() {
 }
 
 function GetInTouch() {
+  const [formState, setFormState] = useState({
+    name: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState({ name: '' });
+  };
+
   return (
     <section id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-12 text-center">
           Get in Touch
         </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formState.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
+              placeholder="Your name"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn-primary w-full text-lg"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   );
