@@ -583,6 +583,7 @@ function Footer() {
               <li><a href="/#about" className="hover:text-itred transition-colors">Who We Are</a></li>
               <li><a href="/#services" className="hover:text-itred transition-colors">Our Services</a></li>
               <li><a href="/blog" className="hover:text-itred transition-colors">Blog</a></li>
+              <li><a href="/#contact" className="hover:text-itred transition-colors">Contact</a></li>
             </ul>
           </div>
           <div>
