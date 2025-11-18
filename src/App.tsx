@@ -591,7 +591,7 @@ function Footer() {
             <ul className="space-y-2 text-itsilver">
               <li><a href="/services/managed-it-support" className="hover:text-itred transition-colors">Managed IT Support</a></li>
               <li><a href="/services/hardware-network" className="hover:text-itred transition-colors">Hardware & Network Setup</a></li>
-              <li>Cloud Solutions</li>
+              <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
               <li>Custom Development</li>
               <li><a href="/services/cybersecurity" className="hover:text-itred transition-colors">Cybersecurity & Protection</a></li>
               <li>IT Consulting</li>

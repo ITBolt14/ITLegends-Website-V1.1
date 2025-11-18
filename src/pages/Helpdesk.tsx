@@ -313,6 +313,7 @@ function ServiceFooter() {
             <h4 className="font-bold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-itsilver text-sm">
               <li><a href="/services/managed-it-support" className="hover:text-itred transition-colors">Managed IT Support</a></li>
+              <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
               <li><a href="/" className="hover:text-itred transition-colors">Other Services</a></li>
             </ul>
           </div>
