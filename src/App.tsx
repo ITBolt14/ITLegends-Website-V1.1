@@ -579,22 +579,22 @@ function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2 text-itsilver">
-              <li><a href="/" className="hover:text-itred transition-colors">Home</a></li>
-              <li><a href="/#about" className="hover:text-itred transition-colors">Who We Are</a></li>
-              <li><a href="/#services" className="hover:text-itred transition-colors">Our Services</a></li>
-              <li><a href="/blog" className="hover:text-itred transition-colors">Blog</a></li>
-              <li><a href="/#contact" className="hover:text-itred transition-colors">Contact</a></li>
+              <li><a href="/" className="hover:text-[#007BFF] transition-colors">Home</a></li>
+              <li><a href="/#about" className="hover:text-[#007BFF] transition-colors">Who We Are</a></li>
+              <li><a href="/#services" className="hover:text-[#007BFF] transition-colors">Our Services</a></li>
+              <li><a href="/blog" className="hover:text-[#007BFF] transition-colors">Blog</a></li>
+              <li><a href="/#contact" className="hover:text-[#007BFF] transition-colors">Contact</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-itsilver">
-              <li><a href="/services/managed-it-support" className="hover:text-itred transition-colors">Managed IT Support</a></li>
-              <li><a href="/services/hardware-network" className="hover:text-itred transition-colors">Hardware & Network Setup</a></li>
-              <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
-              <li><a href="/services/server-maintenance" className="hover:text-itred transition-colors">Server Maintenance & Monitoring</a></li>
-              <li><a href="/services/cybersecurity" className="hover:text-itred transition-colors">Cybersecurity & Protection</a></li>
-              <li><a href="/services/helpdesk" className="hover:text-itred transition-colors">Helpdesk & Remote Assistance</a></li>
+              <li><a href="/services/managed-it-support" className="hover:text-[#007BFF] transition-colors">Managed IT Support</a></li>
+              <li><a href="/services/hardware-network" className="hover:text-[#007BFF] transition-colors">Hardware & Network Setup</a></li>
+              <li><a href="/services/cloud-backup" className="hover:text-[#007BFF] transition-colors">Cloud & Backup Solutions</a></li>
+              <li><a href="/services/server-maintenance" className="hover:text-[#007BFF] transition-colors">Server Maintenance & Monitoring</a></li>
+              <li><a href="/services/cybersecurity" className="hover:text-[#007BFF] transition-colors">Cybersecurity & Protection</a></li>
+              <li><a href="/services/helpdesk" className="hover:text-[#007BFF] transition-colors">Helpdesk & Remote Assistance</a></li>
             </ul>
           </div>
           <div>
