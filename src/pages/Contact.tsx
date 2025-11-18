@@ -1,12 +1,46 @@
-import { Code } from 'lucide-react';
+import { Code, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-itdark text-itsilver">
       <Navigation />
+      <Hero />
       <Footer />
     </div>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3184654/pexels-photo-3184654.jpeg?auto=compress&cs=tinysrgb&w=1600')"
+        }}
+      ></div>
+
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-glow">
+          Contact IT Legends
+        </h1>
+
+        <p className="text-lg sm:text-xl text-itsilver mb-12 leading-relaxed">
+          We're here to support your business — get in touch anytime.
+        </p>
+
+        <a
+          href="#contact-form"
+          className="btn-primary inline-flex items-center justify-center"
+        >
+          Get Started
+          <ChevronRight className="ml-2 h-5 w-5" />
+        </a>
+      </div>
+    </section>
   );
 }
 
