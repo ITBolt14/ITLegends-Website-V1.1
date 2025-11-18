@@ -1,4 +1,4 @@
-import { Code } from 'lucide-react';
+import { Code, Calendar, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
 export default function BlogPage() {
@@ -62,10 +62,80 @@ function Hero() {
 }
 
 function BlogPosts() {
+  const blogPosts = [
+    {
+      id: 1,
+      title: '5 Essential Cybersecurity Tips for Small Businesses',
+      excerpt: 'Protect your business from cyber threats with these practical security measures that every small business should implement today.',
+      date: 'November 12, 2024'
+    },
+    {
+      id: 2,
+      title: 'Understanding Cloud Migration: A Step-by-Step Guide',
+      excerpt: 'Planning to move your infrastructure to the cloud? Learn the key considerations and best practices for a smooth migration process.',
+      date: 'November 8, 2024'
+    },
+    {
+      id: 3,
+      title: 'Windows 11 Update Alert: What IT Managers Need to Know',
+      excerpt: 'Microsoft has released critical security patches. Here is what you need to know about the latest updates and how they affect your systems.',
+      date: 'November 5, 2024'
+    },
+    {
+      id: 4,
+      title: 'The Future of AI in Enterprise IT',
+      excerpt: 'Explore how artificial intelligence is transforming enterprise IT operations and what it means for your business strategy.',
+      date: 'October 30, 2024'
+    },
+    {
+      id: 5,
+      title: 'Network Security Best Practices 2024',
+      excerpt: 'A comprehensive guide to securing your network infrastructure against modern threats and vulnerabilities.',
+      date: 'October 25, 2024'
+    },
+    {
+      id: 6,
+      title: 'Disaster Recovery Planning for Remote Teams',
+      excerpt: 'Learn how to develop effective disaster recovery and business continuity plans for distributed workforces.',
+      date: 'October 20, 2024'
+    }
+  ];
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
       <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => {
+            const isRed = index % 2 === 0;
+            return (
+              <article
+                key={post.id}
+                className={`card-dark group cursor-pointer ${isRed ? 'glow-red border-itred/30 hover:border-itred/60' : 'glow-blue border-itblue/30 hover:border-itblue/60'}`}
+              >
+                <div className="flex items-center space-x-2 mb-4 text-sm text-itsilver/70">
+                  <Calendar className="h-4 w-4" />
+                  <span>{post.date}</span>
+                </div>
 
+                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-itred transition-colors leading-snug">
+                  {post.title}
+                </h3>
+
+                <p className="text-itsilver text-sm mb-6 leading-relaxed">
+                  {post.excerpt}
+                </p>
+
+                <a
+                  href="#"
+                  className={`inline-flex items-center text-sm font-semibold ${isRed ? 'text-itred group-hover:text-itblue' : 'text-itblue group-hover:text-itred'} transition-colors`}
+                >
+                  Read More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
