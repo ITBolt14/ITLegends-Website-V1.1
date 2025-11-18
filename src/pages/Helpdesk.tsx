@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle } from 'lucide-react';
+import { Code, ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HelpdeskPage() {
@@ -7,6 +7,7 @@ export default function HelpdeskPage() {
       <ServiceNavigation />
       <ServiceHero title="Helpdesk & Remote Assistance" subtitle="Fast, friendly support for your team — anytime, anywhere." buttonText="Get Support Now" />
       <PainPointsSection />
+      <SolutionSection />
       <ContentSection />
       <ServiceFooter />
     </div>
@@ -99,6 +100,36 @@ function PainPointsSection() {
               <div className="flex items-start">
                 <AlertCircle className="h-6 w-6 text-itred mt-1 mr-4 flex-shrink-0" />
                 <p className="text-itsilver leading-relaxed">{point}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SolutionSection() {
+  const solutions = [
+    "Instant remote troubleshooting for everyday I.T. issues.",
+    "Skilled helpdesk technicians who resolve problems quickly.",
+    "One central point of contact for all your staff."
+  ];
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Our Solution</h2>
+          <div className="section-divider mb-8"></div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {solutions.map((solution, index) => (
+            <div key={index} className="bg-itgray/30 border border-itblue/30 rounded-lg p-8 hover:border-itblue/60 transition-colors">
+              <div className="flex items-start">
+                <CheckCircle className="h-6 w-6 text-itblue mt-1 mr-4 flex-shrink-0" />
+                <p className="text-itsilver leading-relaxed">{solution}</p>
               </div>
             </div>
           ))}
