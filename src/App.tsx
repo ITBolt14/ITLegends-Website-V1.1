@@ -594,7 +594,7 @@ function Footer() {
               <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
               <li><a href="/services/server-maintenance" className="hover:text-itred transition-colors">Server Maintenance & Monitoring</a></li>
               <li><a href="/services/cybersecurity" className="hover:text-itred transition-colors">Cybersecurity & Protection</a></li>
-              <li>IT Consulting</li>
+              <li><a href="/services/helpdesk" className="hover:text-itred transition-colors">Helpdesk & Remote Assistance</a></li>
             </ul>
           </div>
           <div>
