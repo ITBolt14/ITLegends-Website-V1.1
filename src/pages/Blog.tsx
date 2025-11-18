@@ -62,42 +62,50 @@ function Hero() {
 }
 
 function BlogPosts() {
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
   const blogPosts = [
     {
       id: 1,
-      title: '5 Essential Cybersecurity Tips for Small Businesses',
-      excerpt: 'Protect your business from cyber threats with these practical security measures that every small business should implement today.',
-      date: 'November 12, 2024'
+      title: 'Why Every Business Needs Proactive IT Support',
+      excerpt: 'Your systems are your business. Here\'s why proactive monitoring matters…',
+      date: today,
+      link: '/blog/post-1'
     },
     {
       id: 2,
-      title: 'Understanding Cloud Migration: A Step-by-Step Guide',
-      excerpt: 'Planning to move your infrastructure to the cloud? Learn the key considerations and best practices for a smooth migration process.',
-      date: 'November 8, 2024'
+      title: 'Top 5 Cybersecurity Mistakes SMEs Make',
+      excerpt: 'A quick look at common security gaps and how to fix them…',
+      date: today,
+      link: '/blog/post-2'
     },
     {
       id: 3,
-      title: 'Windows 11 Update Alert: What IT Managers Need to Know',
-      excerpt: 'Microsoft has released critical security patches. Here is what you need to know about the latest updates and how they affect your systems.',
-      date: 'November 5, 2024'
+      title: 'Cloud Backup vs Local Backup: What\'s Better?',
+      excerpt: 'Understanding the difference between cloud and local backups…',
+      date: today,
+      link: '/blog/post-3'
     },
     {
       id: 4,
-      title: 'The Future of AI in Enterprise IT',
-      excerpt: 'Explore how artificial intelligence is transforming enterprise IT operations and what it means for your business strategy.',
-      date: 'October 30, 2024'
+      title: '5 Essential Cybersecurity Tips for Small Businesses',
+      excerpt: 'Protect your business from cyber threats with these practical security measures that every small business should implement today.',
+      date: 'November 12, 2024',
+      link: '#'
     },
     {
       id: 5,
-      title: 'Network Security Best Practices 2024',
-      excerpt: 'A comprehensive guide to securing your network infrastructure against modern threats and vulnerabilities.',
-      date: 'October 25, 2024'
+      title: 'Understanding Cloud Migration: A Step-by-Step Guide',
+      excerpt: 'Planning to move your infrastructure to the cloud? Learn the key considerations and best practices for a smooth migration process.',
+      date: 'November 8, 2024',
+      link: '#'
     },
     {
       id: 6,
-      title: 'Disaster Recovery Planning for Remote Teams',
-      excerpt: 'Learn how to develop effective disaster recovery and business continuity plans for distributed workforces.',
-      date: 'October 20, 2024'
+      title: 'Windows 11 Update Alert: What IT Managers Need to Know',
+      excerpt: 'Microsoft has released critical security patches. Here is what you need to know about the latest updates and how they affect your systems.',
+      date: 'November 5, 2024',
+      link: '#'
     }
   ];
 
@@ -108,9 +116,10 @@ function BlogPosts() {
           {blogPosts.map((post, index) => {
             const isRed = index % 2 === 0;
             return (
-              <article
+              <a
                 key={post.id}
-                className={`card-dark group cursor-pointer ${isRed ? 'glow-red border-itred/30 hover:border-itred/60' : 'glow-blue border-itblue/30 hover:border-itblue/60'}`}
+                href={post.link}
+                className={`card-dark group cursor-pointer block ${isRed ? 'glow-red border-itred/30 hover:border-itred/60' : 'glow-blue border-itblue/30 hover:border-itblue/60'}`}
               >
                 <div className="flex items-center space-x-2 mb-4 text-sm text-itsilver/70">
                   <Calendar className="h-4 w-4" />
@@ -125,14 +134,13 @@ function BlogPosts() {
                   {post.excerpt}
                 </p>
 
-                <a
-                  href="#"
+                <span
                   className={`inline-flex items-center text-sm font-semibold ${isRed ? 'text-itred group-hover:text-itblue' : 'text-itblue group-hover:text-itred'} transition-colors`}
                 >
                   Read More
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </article>
+                </span>
+              </a>
             );
           })}
         </div>
