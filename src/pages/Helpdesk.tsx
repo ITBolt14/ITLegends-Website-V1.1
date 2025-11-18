@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { Code, ChevronRight, AlertCircle, CheckCircle, Zap, TrendingUp, DollarSign, Smile } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HelpdeskPage() {
@@ -8,6 +8,7 @@ export default function HelpdeskPage() {
       <ServiceHero title="Helpdesk & Remote Assistance" subtitle="Fast, friendly support for your team — anytime, anywhere." buttonText="Get Support Now" />
       <PainPointsSection />
       <SolutionSection />
+      <BenefitsSection />
       <ContentSection />
       <ServiceFooter />
     </div>
@@ -133,6 +134,61 @@ function SolutionSection() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BenefitsSection() {
+  const benefits = [
+    {
+      title: 'Fast Support',
+      description: 'Your team gets quick solutions to daily issues.',
+      icon: Zap
+    },
+    {
+      title: 'Higher Productivity',
+      description: 'Less downtime means more work done.',
+      icon: TrendingUp
+    },
+    {
+      title: 'Cost-Effective',
+      description: 'Remote support reduces onsite call-outs.',
+      icon: DollarSign
+    },
+    {
+      title: 'Staff Happiness',
+      description: 'Employees feel supported and empowered.',
+      icon: Smile
+    }
+  ];
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itgray">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Benefits</h2>
+          <div className="section-divider mb-8"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+            const isRed = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                className={`card-dark ${isRed ? 'glow-red border-itred/30' : 'glow-blue border-itblue/30'} flex flex-col items-center text-center`}
+              >
+                <div className={`w-12 h-12 ${isRed ? 'bg-itred/20' : 'bg-itblue/20'} rounded-full flex items-center justify-center mb-4`}>
+                  <Icon className={`h-6 w-6 ${isRed ? 'text-itred' : 'text-itblue'}`} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{benefit.title}</h3>
+                <p className="text-itsilver text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
