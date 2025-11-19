@@ -142,7 +142,7 @@ function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/3184654/pexels-photo-3184654.jpeg?auto=compress&cs=tinysrgb&w=1600')"
+          backgroundImage: "url('/assets/hero.webp')"
         }}
       ></div>
 
