@@ -12,7 +12,7 @@ import BlogPostPage from './pages/BlogPost';
 import BlogPost1Page from './pages/BlogPost1';
 import BlogPost2Page from './pages/BlogPost2';
 import BlogPost3Page from './pages/BlogPost3';
-import ContactPage from './pages/Contact';
+import ContactPage from './pages/Contact'; 
 import Footer from './components/Footer';
 
 
@@ -385,7 +385,7 @@ function Blog() {
       </div>
     </section>
   );
-} 
+}
 
 function BlogAndITTips() {
   const blogPosts = [
