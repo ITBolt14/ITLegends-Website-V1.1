@@ -518,7 +518,7 @@ function Contact() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('src/assets/contact-bg-bg.webp')"
+          backgroundImage: "url('src/assets/contact-bg.webp')"
         }}
       ></div>
 
