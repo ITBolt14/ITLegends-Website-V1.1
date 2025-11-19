@@ -138,7 +138,7 @@ function SectionDivider() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-32">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-16 pb-16">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -184,7 +184,7 @@ function Hero() {
 
 function WhoWeAre() {
   return (
-    <section id="who-we-are" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itdark to-itgray">
+    <section id="who-we-are" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itdark to-itgray">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Who We Are</h2>
@@ -239,7 +239,7 @@ function OurServices() {
   ];
 
   return (
-    <section id="services" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-itdark">
+    <section id="services" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-itdark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Our Services</h2>
@@ -294,7 +294,7 @@ function WhyPartner() {
   ];
 
   return (
-    <section id="why-us" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-itdark">
+    <section id="why-us" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-itdark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Why Partner With Us</h2>
@@ -347,7 +347,7 @@ function Blog() {
   ];
 
   return (
-    <section id="blog" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-itdark">
+    <section id="blog" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-itdark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Latest Insights</h2>
@@ -407,7 +407,7 @@ function BlogAndITTips() {
   ];
 
   return (
-    <section id="blog-tips" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
+    <section id="blog-tips" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -487,7 +487,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
+    <section id="contact" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Let's Build Something Legendary.</h2>
