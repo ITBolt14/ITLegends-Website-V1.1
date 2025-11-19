@@ -13,6 +13,7 @@ import BlogPost1Page from './pages/BlogPost1';
 import BlogPost2Page from './pages/BlogPost2';
 import BlogPost3Page from './pages/BlogPost3';
 import ContactPage from './pages/Contact';
+import SectionDivider from './components/SectionDivider';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -122,14 +123,6 @@ function Navigation({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
         </div>
       )}
     </nav>
-  );
-}
-
-function SectionDivider() {
-  return (
-    <div className="w-full flex justify-center py-8">
-      <div className="w-[90%] h-px bg-gradient-to-r from-itred to-itblue"></div>
-      </div>
   );
 }
 
