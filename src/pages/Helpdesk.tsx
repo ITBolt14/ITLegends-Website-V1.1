@@ -1,5 +1,6 @@
 import { Code, ChevronRight, AlertCircle, CheckCircle, Zap, TrendingUp, DollarSign, Smile, LogIn, Wrench, CheckSquare } from 'lucide-react';
 import { useState } from 'react';
+import Footer from '../components/Footer';
 
 export default function HelpdeskPage() {
   return (
@@ -24,7 +25,7 @@ export default function HelpdeskPage() {
       <SectionDivider />
       
       <CTASection />
-      <ServiceFooter />
+      <Footer />
     </div>
   );
 }
