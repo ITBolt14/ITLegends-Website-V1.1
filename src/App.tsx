@@ -60,9 +60,7 @@ function HomePage({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boole
       {/* Divider between Why Partner With Us and Latest Insights */}
       <SectionDivider />
       
-      <Blog />
-      {/* Divider between Latest Insights and Blog & IT Tips */}
-      <SectionDivider />
+   
       
       <BlogAndITTips />
       {/* Divider between Blog & IT Tips and Contact */}
