@@ -142,7 +142,7 @@ function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/assets/hero.webp')"
+          backgroundImage: "url('src/assets/hero.webp')"
         }}
       ></div>
 
