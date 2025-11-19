@@ -43,12 +43,29 @@ function HomePage({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boole
     <div className="min-h-screen bg-itdark text-itsilver">
       <Navigation mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <Hero />
+      {/* Divider between Hero and Who We Are */}
       <SectionDivider />
+      
       <WhoWeAre />
+      {/* Divider between Who We Are and Our Services */}
+      <SectionDivider />
+      
       <OurServices />
+      {/* Divider between Our Services and Why Partner With Us */}
+      <SectionDivider />
+      
       <WhyPartner />
+      {/* Divider between Why Partner With Us and Latest Insights */}
+      <SectionDivider />
+      
       <Blog />
+      {/* Divider between Latest Insights and Blog & IT Tips */}
+      <SectionDivider />
+      
       <BlogAndITTips />
+      {/* Divider between Blog & IT Tips and Contact */}
+      <SectionDivider />
+      
       <Contact />
       <Footer />
     </div>
@@ -110,9 +127,8 @@ function Navigation({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boo
 
 function SectionDivider() {
   return (
-    <div className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itdark to-itgray">
-      <div className="max-w-7xl mx-auto flex justify-center">
-        <div className="w-[90%] h-px bg-gradient-to-r from-itred to-itblue"></div>
+    <div className="w-full flex justify-centre py-8">
+      <div className="w-[90%] h-px bg-gradient-to-r from-itred to-itblue"></div>
       </div>
     </div>
   );
@@ -176,7 +192,6 @@ function WhoWeAre() {
           </p>
         </div>
       </div>
-      <SectionDivider />
     </section>
   );
 }
