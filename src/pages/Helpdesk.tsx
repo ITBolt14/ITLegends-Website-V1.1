@@ -6,11 +6,23 @@ export default function HelpdeskPage() {
     <div className="min-h-screen bg-itdark text-itsilver">
       <ServiceNavigation />
       <ServiceHero title="Helpdesk & Remote Assistance" subtitle="Fast, friendly support for your team — anytime, anywhere." buttonText="Get Support Now" />
+      <SectionDivider />
+      
       <PainPointsSection />
+      <SectionDivider />
+      
       <SolutionSection />
+      <SectionDivider />
+      
       <BenefitsSection />
+      <SectionDivider />
+      
       <ProcessSection />
+      <SectionDivider />
+      
       <ContentSection />
+      <SectionDivider />
+      
       <CTASection />
       <ServiceFooter />
     </div>
@@ -44,6 +56,15 @@ function ServiceNavigation() {
         </div>
       </div>
     </nav>
+  );
+}
+
+function SectionDivider() { 
+  return ( 
+    <div className="w-full flex justify-center py-8"> 
+      <div className="w-[90%] h-px bg-gradient-to-r from-itred to-itblue">
+        </div>
+      </div> 
   );
 }
 
