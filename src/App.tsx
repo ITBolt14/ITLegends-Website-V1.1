@@ -184,8 +184,17 @@ function Hero() {
 
 function WhoWeAre() {
   return (
-    <section id="who-we-are" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itdark to-itgray">
-      <div className="max-w-7xl mx-auto">
+    <section id="who-we-are" className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/assets/who-we-are.webp')"
+        }}
+      ></div>
+
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Who We Are</h2>
           <div className="section-divider mb-8"></div>
