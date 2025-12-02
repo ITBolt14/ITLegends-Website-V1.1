@@ -56,16 +56,29 @@ function ServiceNavigation() {
           </button>
         </div>
       </div>
+
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-itgray border-t border-itgray2">
+          <div className="px-4 py-4">
+            <a
+              href="/"
+              className="block text-itsilver hover:text-itred transition-colors font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Back to Home
+            </a>
+          </div>
+        </div>        
+      )}
     </nav>
   );
 }
 
 function SectionDivider() { 
   return ( 
-    <div className="w-full flex justify-center py-8"> 
-      <div className="w-[90%] h-px bg-gradient-to-r from-itred to-itblue">
-        </div>
-      </div> 
+    <div className="w-full flex justify-center py-0.5 bg-transparent"> 
+      <div className="w-[95%] h-px bg-gradient-to-r from-itred to-itblue"/>
+    </div> 
   );
 }
 
@@ -76,16 +89,19 @@ interface ServiceHeroProps {
 
 function ServiceHero({ title, subtitle }: ServiceHeroProps) {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 pb-16">
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/3184654/pexels-photo-3184654.jpeg?auto=compress&cs=tinysrgb&w=1600')"
+          backgroundImage: "url('/src/assets/hardware-hero.webp')"
         }}
       ></div>
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
+      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-glow">
           {title}
@@ -115,12 +131,24 @@ function PainPoints() {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Common Pain Points</h2>
-          <div className="section-divider mb-8"></div>
-        </div>
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/hardware-painpoints.webp')"
+        }}
+        ></div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">Common Pain Points</h2>
+            <div className="section-divider mb-8"></div>
+          </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {painPoints.map((point, index) => (
@@ -148,8 +176,20 @@ function OurSolution() {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itdark to-itgray">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/hardware-solution.webp')"
+        }}
+        ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Our Solution</h2>
           <div className="section-divider mb-8"></div>
@@ -194,8 +234,20 @@ function Benefits() {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/hardware-benefits.webp')"
+        }}
+        ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Key Benefits</h2>
           <div className="section-divider mb-8"></div>
@@ -246,8 +298,20 @@ function Process() {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to-itdark">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/hardware-process.webp')"
+        }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Our Process</h2>
           <div className="section-divider mb-8"></div>
@@ -279,15 +343,75 @@ function Process() {
 }
 
 function ContentSection() {
+  const detailGroups = [
+    {
+      title: 'Network Infrastructure',
+      items: [
+        'LAN and Wi-Fi design for offices and warehouses',
+        'Business-grade switches, routers, and firewalls',
+        'VLANs, segmentation, and traffic shaping',
+      ],
+    },
+    {
+      title: 'Hardware Supply & Setup',
+      items: [
+        'Desktops, laptops, and workstations for staff',
+        'On-premises servers and NAS devices',
+        'Monitors, peripherals, and essential accessories',
+      ],
+    },
+    {
+      title: 'Ongoing Support & Documentation',
+      items: [
+        'Network topology diagrams and asset inventory',
+        'Standards for future upgrades and expansions',
+        'Collaboration with your internal or external IT teams',
+      ],
+    },
+  ];
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-itdark">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/hardware-details.webp')",
+        }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">Service Details</h2>
           <div className="section-divider mb-8"></div>
-          <p className="text-lg text-itsilver max-w-2xl mx-auto">
-            Content coming soon. Our team is preparing comprehensive information about this service.
+          <p className="text-lg text-itsilver max-w-3xl mx-auto">
+            Our Hardware & Network Setup service covers everything from planning and procurement to clean installations and long-term support.
           </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {detailGroups.map((group, index) => (
+            <div
+              key={index}
+              className="card-dark glow-blue border-itblue/30 h-full"
+            >
+              <h3 className="text-xl font-bold text-white mb-4">
+                {group.title}
+              </h3>
+              <ul className="space-y-3 text-itsilver text-sm leading-relaxed">
+                {group.items.map((item, idx) => (
+                  <li key={idx} className="flex items-start space-x-2">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-itblue" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
