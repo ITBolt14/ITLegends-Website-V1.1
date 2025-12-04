@@ -426,23 +426,50 @@ function CTA() {
     message: '',
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle') ;
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [reference, setReference] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handlesubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState({ name: '', email: '', company: '', message: ''});
+    setStatus('loading');
+    setErrorMessage(null);
+    setReference(null);
+
+    try {
+      const res = await fetch('https://hook.us2.make.com/pt14ynlwgyio4c48iwruduu9curorf4a' {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formState,
+          service: 'Hardware & Network Query',
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send message. Please try again.');
+      }
+
+      const data = await res.json();
+      setReference(data.reference || null);
+      setStatus('success');
+      setFormState({ name: '', email: '', company: '', message: '' });
+    } catch (err: any) {
+      console.error(err);
+      setStatus('error');
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    }
   };
 
   return (
-    <section id="contact"
-    className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -454,106 +481,9 @@ function CTA() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-          Need a reliable hardware and network setup?
-        </h2>
-        <div className="section-divider mb-8"></div>
-
-        <p className="text-lg text-itsilver">
-          We'll design and install infrastructure that just works.
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-semibold text-white mb-3"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formState.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-white mb-3"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-              placeholder="your@email.com"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="company"
-            className="block text-sm font-semibold text-white mb-3"
-          >
-            Company
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formState.company}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-            placeholder="Your company name"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-semibold text-white mb-3"
-          >
-            Tell us about your current setup
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formState.message}
-            onChange={handleChange}
-            required
-            rows={5}
-            className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
-            placeholder="Describe your current hardware, network, and any issue you're experiencing..."
-          ></textarea>
-        </div>
-
-        <button type="submit" className="btn-primary w-full text-lg">
-          Request a Hardware & Network Audit
-          <ChevronRight className="ml-2 h-5 w-5" />
-        </button>
-      </form>
-    </div>
-  </section>
-  );
+      
+    </section>
+  )
 }
 
 function ServiceFooter() {

@@ -491,6 +491,7 @@ function Contact() {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
+    company: '',
     message: ''
   });
 
@@ -512,38 +513,23 @@ function Contact() {
     setReference(null);
 
   try {
-    const response = await fetch('https://hook.us2.make.com/pt14ynlwgyio4c48iwruduu9curorf4a', {
+    const res = await fetch('https://hook.us2.make.com/pt14ynlwgyio4c48iwruduu9curorf4a', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...formState,
-        service: 'General Website Contact'
-      })
+        service: 'General Query',
+      }),
     });
 
-    //For debugging
-    const raw = await response.text();
-    console.log('Raw response from Make:', raw);
-
-    if (!response.ok) {
-      throw new Error('Failed to send message. Please try again');
+    if (!res.ok) {
+      throw new Error('Failed to send message. Please try again.');
     }
 
-    let data;
-    try{
-      data = JSON.parse(raw);
-    } catch (e) {
-      console.error('Failed to parse JSON:', e);
-      throw new Error('Server returned invalid JSON.');
-    }
-
-    //const data = await response.json();
-
-    setStatus('success');
+    const data = await res.json();
     setReference(data.reference || null);
-    setFormState({ name: '', email: '', message: '' });
+    setStatus('success');
+    setFormState({ name: '', email: '', company: '',  message: '' });
   } catch (err: any) {
     console.error(err);
     setStatus('error');
@@ -552,141 +538,161 @@ function Contact() {
 };
 
   return (
-    <section id="contact" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to it-dark">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/contact-bg.webp')"
+        }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Let's build Something Legendary</h2>
-        <div className="section-divider mb-8"></div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-12">
-        {/* Left column - contact details */}
-        <div className="space-y-8">
-          {/* Phone */}
-          <div className="flex items-start space-x-4 mb-6">
-            <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
-              <Phone className="h-7 w-7 text-itred" />
-            </div>
-            <div>
-              <div className="font-semibold text-white mb-1 text-lg">Phone</div>
-              <div className="text-itsilver text-base">
-                <a href="tel:+27846348144" className="hover:text-itblue transition-colors">
-                  +27 (84) 634 8144
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Email */}
-          <div className="flex items-start space-x-4 mb-6">
-            <div className="w-14 h-14 bg-itblue/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itblue/30">
-              <Mail className="h-7 w-7 text-itblue" />
-            </div>
-            <div>
-              <div className="font-semibold text-white mb-1 text-lg">Email</div>
-              <div className="text-itsilver text-base">
-                <a href="mailto:info@itlegends.co.za" className="hover:text-itblue transition-colors">
-                  info@itlegends.co.za
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Location */}
-          <div className="flex items-start space-x-4">
-            <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
-              <MapPin className="h-7 w-7 text-itred" />
-            </div>
-            <div>
-              <div className="font-semibold text-white mb-1 text-lg">Location</div>
-              <div className="text-itsilver text-base">Gauteng, South Africa</div>
-            </div>
-          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Let's Build Something Legendary.
+          </h2>
+          <div className="section-divider mb-8"></div>
         </div>
 
-        {/* Right column - form */}
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid mb:grid-cols-2 gap-6">
+          {/* Left contact info */}
+          <div className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formState.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-white mb-3">
-                Email
-              </label>
-              <input 
-                type="email"
-                id="email"
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lgfocus:ring-2 focus:ring-itred focus-border-transparent outline-none transition text-whote placeholder-itsilver/50"
-                placeholder="your@email.com"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-white mb-3">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formState.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
-                placeholder="Tell us how we can help..."
-              ></textarea>
-            </div>
-
-            {/* Status messages */}
-            {status === 'success' && (
-              <div className="text-sm text-green-400">
-                Thank you! Your message has been sent.
-                {reference && (
-                  <>
-                    {' '}Your reference number is{' '}
-                    <span className="font-semibold text-green-300">{reference}</span>
-                  </>
-                )}{' '}
-                Please check your email for confirmation.
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
+                  <Phone className="h-7 w-7 text-itred" />
+                </div>
+                <div>
+                  <div className="font-semibold text-white mb-1 text-lg">Phone</div>
+                  <div className="text-itsilver text-base">
+                    <a href="tel:+27846348144" className="hover:text-itred transition-colors">
+                      +27 (84) 634 8144
+                    </a>
+                  </div>
+                </div>
               </div>
-            )}
 
-            {status === 'error' && (
-              <div className="text-sm text-red-400">
-                {errorMessage || 'Something went wrong. Please try again.'}
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="w-14 h-14 bg-itblue/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itblue/30">
+                  <Mail className="h-7 w-7 text-itblue" />
+                </div>
+                <div>
+                  <div className="font-semibold text-white mb-1 text-lg">Email</div>
+                  <div className="text-itsilver text-base">
+                    <a href="mailto:info@itlegends.co.za" className="hover:text-itred transition-colors">
+                      info@itlegends.co.za
+                    </a>
+                  </div>
+                </div>
               </div>
-            )}
 
-            <button
-              type="submit"
-              className="btn-primary w-full text-lg disabled:opacity-60 disabled:cursor-not-allow"
-              disabled={status === 'loading'}
-            >
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+              <div className="flex items-start space-x-4">
+                <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
+                  <MapPin className="h-7 w-7 text-itred" />
+                </div>
+                <div>
+                  <div className="font-semibold text-white mb-1 text-lg">Location</div>
+                  <div className="text-itsilver text-base">
+                    Gauteng, South Africa
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right form */}
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formState.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-white mb-3">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="company" className="block text-sm font-semibold text-white mb-3">
+                  Company (Optional)
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formState.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
+                  placeholder="Your company name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-white mb-3">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formState.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
+                  placeholder="Tell us how we can help..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="btn-primary w-full text-lg"
+              >
+                {status === 'loading' ? 'Sending...' : 'Send Message'}
+              </button>
+
+              {status === 'success' && reference && (
+                <p className="text-sm text-green-400 mt-3 text-center">
+                  Thank you! Your reference number is{' '}
+                  <span className="font-semibold">{reference}</span>.
+                </p>
+              )}
+
+              {status === 'error' && errorMessage && (
+                <p className="text-sm text-red-400 mt-3 text-center">{errorMessage}</p>
+              )}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
 
