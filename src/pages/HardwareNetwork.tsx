@@ -112,7 +112,7 @@ function ServiceHero({ title, subtitle }: ServiceHeroProps) {
         </p>
 
         <a
-          href="/#contact"
+          href="#contact"
           className="btn-primary inline-flex items-center justify-center"
         >
           Request a Quote

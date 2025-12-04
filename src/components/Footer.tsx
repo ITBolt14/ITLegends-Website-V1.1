@@ -57,8 +57,18 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm sm:text-base">Connect</h4>
             <ul className="space-y-2 text-itsilver text-sm sm:text-base">
-              <li>info@itlegends.co.za</li>
-              <li>+27 (84) 634 8144</li>
+              <li>
+                <a href="mailto:info@itlegends.co.za" className="hover:text-itblue transition-colors">
+                  info@itlegends.co.za
+                </a>
+              </li>
+              
+              <li>
+                <a href="tel:+27846348144" className="hover:text-itblue transition-colors">
+                  +27 (84) 634 8144
+                </a> 
+              </li>
+
               <li>Gauteng, South Africa</li>
             </ul>
           </div>

@@ -114,7 +114,7 @@ function ServiceHero({ title, subtitle, buttonText = "Request a Quote" }: Servic
         </p>
 
         <a
-          href="/#contact"
+          href="#contact"
           className="btn-primary inline-flex items-center justify-center"
         >
           {buttonText}

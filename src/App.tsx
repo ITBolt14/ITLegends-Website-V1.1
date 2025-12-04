@@ -1,4 +1,4 @@
-import { Menu, X, Code, Cloud, Shield, Zap, Users, TrendingUp, Mail, Phone, MapPin, ChevronRight, Cpu, BookOpen, Calendar, ArrowRight, Check, AlertCircle } from 'lucide-react';
+import { Menu, X,  Cloud, Shield, Zap, Users, TrendingUp, Mail, Phone, MapPin, ChevronRight, Cpu, BookOpen, Calendar, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ManagedITSupportPage from './pages/ManagedITSupport';
@@ -494,6 +494,10 @@ function Contact() {
     message: ''
   });
 
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [reference, setReference] = useState<string | null>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
@@ -501,166 +505,189 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('loading');
+    setErrorMessage(null);
+    setReference(null);
+
+  try {
+    const response = await fetch('https://hook.us2.make.com/pt14ynlwgyio4c48iwruduu9curorf4a', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...formState,
+        service: 'General Website Contact'
+      })
+    });
+
+    //For debugging
+    const raw = await response.text();
+    console.log('Raw response from Make:', raw);
+
+    if (!response.ok) {
+      throw new Error('Failed to send message. Please try again');
+    }
+
+    let data;
+    try{
+      data = JSON.parse(raw);
+    } catch (e) {
+      console.error('Failed to parse JSON:', e);
+      throw new Error('Server returned invalid JSON.');
+    }
+
+    //const data = await response.json();
+
+    setStatus('success');
+    setReference(data.reference || null);
     setFormState({ name: '', email: '', message: '' });
-  };
+  } catch (err: any) {
+    console.error(err);
+    setStatus('error');
+    setErrorMessage(err.message || 'Something went wrong. Please try again.');
+  }
+};
 
   return (
-    <section
-      id="contact"
-      className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
-    >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('src/assets/contact-bg.webp')"
-        }}
-      ></div>
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section id="contact" className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-itgray to it-dark">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Let's Build Something Legendary.
-          </h2>
-          <div className="section-divider mb-8"></div>
-        </div>
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Let's build Something Legendary</h2>
+        <div className="section-divider mb-8"></div>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Details */}
-          <div className="space-y-8">
+      <div className="grid md:grid-cols-2 gap-12">
+        {/* Left column - contact details */}
+        <div className="space-y-8">
+          {/* Phone */}
+          <div className="flex items-start space-x-4 mb-6">
+            <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
+              <Phone className="h-7 w-7 text-itred" />
+            </div>
             <div>
-              {/* Phone */}
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
-                  <Phone className="h-7 w-7 text-itred" />
-                </div>
-                <div>
-                  <div className="font-semibold text-white mb-1 text-lg">
-                    Phone
-                  </div>
-                  <div className="text-itsilver text-base">
-                    +27 (84) 634-8144
-                  </div>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="w-14 h-14 bg-itblue/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itblue/30">
-                  <Mail className="h-7 w-7 text-itblue" />
-                </div>
-                <div>
-                  <div className="font-semibold text-white mb-1 text-lg">
-                    Email
-                  </div>
-                  <div className="text-itsilver text-base">
-                    info@itlegends.com
-                  </div>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
-                  <MapPin className="h-7 w-7 text-itred" />
-                </div>
-                <div>
-                  <div className="font-semibold text-white mb-1 text-lg">
-                    Location
-                  </div>
-                  <div className="text-itsilver text-base">
-                    Gauteng,
-                    <br />
-                    South Africa
-                  </div>
-                </div>
+              <div className="font-semibold text-white mb-1 text-lg">Phone</div>
+              <div className="text-itsilver text-base">
+                <a href="tel:+27846348144" className="hover:text-itblue transition-colors">
+                  +27 (84) 634 8144
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-white mb-3"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formState.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-                  placeholder="Your name"
-                />
+          {/* Email */}
+          <div className="flex items-start space-x-4 mb-6">
+            <div className="w-14 h-14 bg-itblue/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itblue/30">
+              <Mail className="h-7 w-7 text-itblue" />
+            </div>
+            <div>
+              <div className="font-semibold text-white mb-1 text-lg">Email</div>
+              <div className="text-itsilver text-base">
+                <a href="mailto:info@itlegends.co.za" className="hover:text-itblue transition-colors">
+                  info@itlegends.co.za
+                </a>
               </div>
+            </div>
+          </div>
 
-              {/* Email */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-white mb-3"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-white mb-3"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formState.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
-                  placeholder="Tell us how we can help..."
-                ></textarea>
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="btn-primary w-full text-lg"
-              >
-                Send Message
-              </button>
-            </form>
+          {/* Location */}
+          <div className="flex items-start space-x-4">
+            <div className="w-14 h-14 bg-itred/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-itred/30">
+              <MapPin className="h-7 w-7 text-itred" />
+            </div>
+            <div>
+              <div className="font-semibold text-white mb-1 text-lg">Location</div>
+              <div className="text-itsilver text-base">Gauteng, South Africa</div>
+            </div>
           </div>
         </div>
+
+        {/* Right column - form */}
+        <div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formState.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition text-white placeholder-itsilver/50"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-white mb-3">
+                Email
+              </label>
+              <input 
+                type="email"
+                id="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lgfocus:ring-2 focus:ring-itred focus-border-transparent outline-none transition text-whote placeholder-itsilver/50"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-semibold text-white mb-3">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formState.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
+                placeholder="Tell us how we can help..."
+              ></textarea>
+            </div>
+
+            {/* Status messages */}
+            {status === 'success' && (
+              <div className="text-sm text-green-400">
+                Thank you! Your message has been sent.
+                {reference && (
+                  <>
+                    {' '}Your reference number is{' '}
+                    <span className="font-semibold text-green-300">{reference}</span>
+                  </>
+                )}{' '}
+                Please check your email for confirmation.
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="text-sm text-red-400">
+                {errorMessage || 'Something went wrong. Please try again.'}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="btn-primary w-full text-lg disabled:opacity-60 disabled:cursor-not-allow"
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }
-
 
 export default App;
