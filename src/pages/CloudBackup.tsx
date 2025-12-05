@@ -496,7 +496,7 @@ function CTA() {
 
           <div>
             <label htmlFor="company" className="block text-sm font-semibold text-white mb-3">
-              Company
+              Company (Optional)
             </label>
             <input
               type="text"
