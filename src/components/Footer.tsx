@@ -1,5 +1,3 @@
-import { Code } from 'lucide-react';
-
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden pt-16 pb-12 px-4 sm:px-6 lg:px-8">
@@ -75,8 +73,8 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/20 pt-6 sm:pt-8 text-center text-itsilver/60 text-sm sm:text-base">
-          <p>&copy; IT Legends. All rights reserved.</p>
+        <div className="border-t border-white/20 pt-6 sm:pt-4 text-center text-itsilver/60 text-sm sm:text-base">
+          <p>&copy; 2025 IT Legends. All rights reserved.</p>
         </div>
       </div>
     </footer>

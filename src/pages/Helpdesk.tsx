@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle, CheckCircle, Headphones, PhoneCall, Monitor, Clock, Users, Zap, TrendingUp, DollarSign, Smile, LogIn, Wrench, CheckSquare } from 'lucide-react';
+import { ChevronRight, AlertCircle, CheckCircle, Headphones, Monitor, Clock } from 'lucide-react';
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 
@@ -6,7 +6,7 @@ export default function HelpdeskPage() {
   return (
     <div className="min-h-screen bg-itdark text-itsilver">
       <ServiceNavigation />
-      <ServiceHero title="Helpdesk & Remote Assistance" subtitle="Fast, friendly support for your team — anytime, anywhere." buttonText="Get Support Now" />
+      <ServiceHero />
       <SectionDivider />
       
       <PainPointsSection />
@@ -39,7 +39,7 @@ function ServiceNavigation() {
           <div className="flex items-center space-x-2">
           <a href="#" className="flex items-center space-x-2">
             <img src="/src/assets/header-img.webp" alt="IT Legends Logo" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-white">IT Legends</span>
+            <span className="text-xl font-bold text-white">IT Legends | Helpdesk & Remote Assistance</span>
           </a>
         </div>
 
@@ -82,13 +82,7 @@ function SectionDivider() {
   );
 }
 
-interface ServiceHeroProps {
-  title: string;
-  subtitle: string;
-  buttonText?: string;
-}
-
-function ServiceHero({ title, subtitle, buttonText = "Request a Quote" }: ServiceHeroProps) {
+function ServiceHero () {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Background image */}
@@ -595,7 +589,7 @@ function CTASection() {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus: ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
+            className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
             placeholder="Tell us about your current IT challanges and goals..."
           ></textarea>
         </div>

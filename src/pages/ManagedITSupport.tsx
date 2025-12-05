@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle, Clock, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 
@@ -37,7 +37,7 @@ function ServiceNavigation() {
           <div className="flex items-center space-x-2">
           <a href="#" className="flex items-center space-x-2">
             <img src="/src/assets/header-img.webp" alt="IT Legends Logo" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-white">IT Legends</span>
+            <span className="text-xl font-bold text-white">IT Legends | Managed IT Support</span>
           </a>
         </div>
 

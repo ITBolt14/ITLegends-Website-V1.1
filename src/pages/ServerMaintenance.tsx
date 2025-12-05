@@ -1,4 +1,4 @@
-import { Code, ChevronRight, AlertCircle, CheckCircle, Server, Activity, Clock, Zap, TrendingUp, Shield, Database, Search, Wrench, Eye } from 'lucide-react';
+import { ChevronRight, AlertCircle, CheckCircle, Activity, Clock, Shield } from 'lucide-react';
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 
@@ -6,7 +6,7 @@ export default function ServerMaintenancePage() {
   return (
     <div className="min-h-screen bg-itdark text-itsilver">
       <ServiceNavigation />
-      <ServiceHero title="Server Maintenance & Monitoring" subtitle="Keep your servers secure, updated, and performing at their best." buttonText="Request a Server Health Check" />
+      <ServiceHero />
       <SectionDivider />
       
       <PainPoints />
@@ -39,7 +39,7 @@ return (
           <div className="flex items-center space-x-2">
           <a href="#" className="flex items-center space-x-2">
             <img src="/src/assets/header-img.webp" alt="IT Legends Logo" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-white">IT Legends</span>
+            <span className="text-xl font-bold text-white">IT Legends | Server Maintenance & Monitoring</span>
           </a>
         </div>
 
@@ -82,13 +82,7 @@ function SectionDivider() {
   );
 }
 
-interface ServiceHeroProps {
-  title: string;
-  subtitle: string;
-  buttonText?: string;
-}
-
-function ServiceHero({ title, subtitle, buttonText = "Request a Quote" }: ServiceHeroProps) {
+function ServiceHero() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Background image */}
@@ -595,7 +589,7 @@ function CallToAction() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-3 bg-itgray border border-itgray-2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
+              className="w-full px-4 py-3 bg-itgray border border-itgray2 rounded-lg focus:ring-2 focus:ring-itred focus:border-transparent outline-none transition resize-none text-white placeholder-itsilver/50"
               placeholder="Tell us about your current IT challenges and goals..."
             ></textarea>
           </div>
@@ -622,43 +616,5 @@ function CallToAction() {
         </form>
       </div>
     </section>
-  );
-}
-
-function ServiceFooter() {
-  return (
-    <footer className="bg-itdark border-t border-itgray2 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <a href="/" className="flex items-center space-x-2 mb-4">
-              <Code className="h-8 w-8 text-itred" />
-              <span className="text-xl font-bold text-white">IT Legends</span>
-            </a>
-            <p className="text-itsilver">
-              Reliable managed IT support, cybersecurity, cloud and network solutions for South African businesses.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-bold text-white mb-4">Services</h4>
-            <ul className="space-y-2 text-itsilver text-sm">
-              <li><a href="/services/managed-it-support" className="hover:text-itred transition-colors">Managed IT Support</a></li>
-              <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
-              <li><a href="/" className="hover:text-itred transition-colors">Other Services</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-white mb-4">Connect</h4>
-            <ul className="space-y-2 text-itsilver text-sm">
-              <li>contact@itlegends.com</li>
-              <li>+1 (555) 123-4567</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-itgray2 pt-8 text-center text-itsilver/60">
-          <p>&copy; 2024 IT Legends. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
   );
 }

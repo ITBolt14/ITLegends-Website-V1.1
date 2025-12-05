@@ -1,4 +1,4 @@
-import { Code, ChevronRight, Shield, Network, CheckCircle, AlertCircle, Zap, Lock, Bug, Activity, Eye } from 'lucide-react';
+import { ChevronRight, Shield, CheckCircle, AlertCircle, Lock, Activity } from 'lucide-react';
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 
@@ -6,7 +6,7 @@ export default function CybersecurityPage() {
   return (
     <div className="min-h-screen bg-itdark text-itsilver">
       <ServiceNavigation />
-      <ServiceHero title="Cybersecurity & Protection" subtitle="Shield your business from cyber threats, data breaches, and ransomware." buttonText="Request a Security Assessment" />
+      <ServiceHero />
       <SectionDivider />
 
       <PainPoints />
@@ -36,7 +36,7 @@ function ServiceNavigation() {
           <div className="flex items-center space-x-2">
           <a href="#" className="flex items-center space-x-2">
             <img src="/src/assets/header-img.webp" alt="IT Legends Logo" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-white">IT Legends</span>
+            <span className="text-xl font-bold text-white">IT Legends | Cybersecurity & Protection</span>
           </a>
         </div>
 
@@ -79,13 +79,7 @@ function SectionDivider() {
   );
 }
 
-interface ServiceHeroProps {
-  title: string;
-  subtitle: string;
-  buttonText?: string;
-}
-
-function ServiceHero({ title, subtitle, buttonText = "Request a Quote" }: ServiceHeroProps) {
+function ServiceHero() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Background image */}
@@ -544,42 +538,4 @@ function FinalCTA() {
       </div>
     </section>            
   );  
-}
-
-function ServiceFooter() {
-  return (
-    <footer className="bg-itdark border-t border-itgray2 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <a href="/" className="flex items-center space-x-2 mb-4">
-              <Code className="h-8 w-8 text-itred" />
-              <span className="text-xl font-bold text-white">IT Legends</span>
-            </a>
-            <p className="text-itsilver">
-              Reliable managed IT support, cybersecurity, cloud and network solutions for South African businesses.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-bold text-white mb-4">Services</h4>
-            <ul className="space-y-2 text-itsilver text-sm">
-              <li><a href="/services/managed-it-support" className="hover:text-itred transition-colors">Managed IT Support</a></li>
-              <li><a href="/services/cloud-backup" className="hover:text-itred transition-colors">Cloud & Backup Solutions</a></li>
-              <li><a href="/" className="hover:text-itred transition-colors">Other Services</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-white mb-4">Connect</h4>
-            <ul className="space-y-2 text-itsilver text-sm">
-              <li>contact@itlegends.com</li>
-              <li>+1 (555) 123-4567</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-itgray2 pt-8 text-center text-itsilver/60">
-          <p>&copy; 2024 IT Legends. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  );
 }
