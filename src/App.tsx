@@ -1,4 +1,4 @@
-import { Menu, X,  Cloud, Shield, Zap, Users, TrendingUp, Mail, Phone, MapPin, ChevronRight, Cpu, BookOpen, Calendar, ArrowRight } from 'lucide-react';
+import { Menu, X,  Cloud, Shield, Zap, Users, TrendingUp, Mail, Phone, MapPin, ChevronRight, Cpu, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ManagedITSupportPage from './pages/ManagedITSupport';
@@ -643,7 +643,7 @@ function Contact() {
                   autoComplete="off"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
                   Name
