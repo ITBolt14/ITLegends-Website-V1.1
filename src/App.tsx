@@ -364,9 +364,9 @@ function BlogAndITTips() {
   const posts = [
     {
       slug: 'cloud-future',
-      title: 'The Future of Cloud Computing in 2024',
+      title: 'The Future of Cloud Computing in 2025',
       excerpt: 'Explore the latest trends in cloud technology and how they are reshaping business infrastructure.',
-      date: 'Mar 15, 2024',
+      date: 'Nov 03, 2025',
       Catagory: 'Cloud',
       image: '/src/assets/blog-card-cloud.webp',
     },
@@ -374,15 +374,15 @@ function BlogAndITTips() {
       slug: 'ai-integration-guide',
       title: 'AI Integration: A Prectical Guide for Businesses',
       excerpt: 'Learn how to successfully integrate artifical intelligence into your existing workflows and systems.',
-      date: 'Mar 10, 2024',
+      date: 'Nov 10, 2025',
       category: 'AI',
       image: '/src/assets/blog-card-ai.webp',
     },
     {
-      slug: 'cybersecurity-best-practices-2024',
-      title: 'Cybersecurity Best Practices for 2024',
+      slug: 'cybersecurity-best-practices-2025',
+      title: 'Cybersecurity Best Practices for 2025',
       excerpt: 'Essential security measures every organization should implement to protect against modern threats.',
-      date: 'Mar 5, 2024',
+      date: 'Nov 17, 2025',
       category: 'Security',
       image: '/src/assets/blog-card-security.webp',
     },
@@ -478,7 +478,8 @@ function Contact() {
     name: '',
     email: '',
     company: '',
-    message: ''
+    message: '',
+    honeypot: ''
   });
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -494,6 +495,13 @@ function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot spam check - if this has any value, it's likely a bot
+    if (formState.honeypot) {
+      console.warn('Spam submission blocked (honeypot triggered).');
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage(null);
     setReference(null);
@@ -515,7 +523,9 @@ function Contact() {
     const data = await res.json();
     setReference(data.reference || null);
     setStatus('success');
-    setFormState({ name: '', email: '', company: '',  message: '' });
+
+    // Reset all fields including honeypot
+    setFormState({ name: '', email: '', company: '',  message: '', honeypot: '' });
   } catch (err: any) {
     console.error(err);
     setStatus('error');
@@ -621,6 +631,19 @@ function Contact() {
           {/* Right form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from real users */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="honeypot"
+                  value={formState.honeypot}
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </div>
+              
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">
                   Name

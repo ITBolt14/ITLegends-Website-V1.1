@@ -380,6 +380,7 @@ function FinalCTA() {
     email: '',
     company: '',
     message: '',
+    honeypot: ''
   });
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -395,6 +396,13 @@ function FinalCTA() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot check
+    if (formState.honeypot) {
+      console.warn('Spam submission blocked (honeypot triggered).');
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage(null);
     setReference(null);
@@ -416,7 +424,7 @@ function FinalCTA() {
       const data = await res.json();
       setReference(data.reference || null);
       setStatus('success');
-      setFormState({ name: '', email: '', company: '', message: '' });
+      setFormState({ name: '', email: '', company: '', message: '', honeypot: '' });
     } catch (err: any) {
       console.error(err);
       setStatus('error');
@@ -449,6 +457,20 @@ function FinalCTA() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+
+          {/* Honeyport field */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input 
+              type="text"
+              id="website"
+              name="honeypot"
+              value={formState.honeypot}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </div>
+          
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-white mb-3">

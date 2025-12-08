@@ -25,8 +25,8 @@ type BlogPost = {
 const blogPosts: BlogPost[] = [
   {
     slug: 'cloud-future',
-    title: 'The Future of Cloud Computing in 2024 (and Beyond) for South African Businesses',
-    date: 'Mar 15, 2024',
+    title: 'The Future of Cloud Computing in 2025 (and Beyond) for South African Businesses',
+    date: 'Nov 3, 2025',
     readTime: '7 min read',
     category: 'Cloud',
     excerpt: 'Cloud is no longer a "nice to have". It is the backbone of modern, always-on business - especially for SMEs that need flexibility, resilience, and predictable costs.',
@@ -80,7 +80,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'ai-integration-guide',
     title: 'AI Integration: A Practical Guide for Business Owners (Not Data Scientists)',
-    date: 'Mar 10, 2024',
+    date: 'Nov 10, 2025',
     readTime: '8 min read',
     category: 'AI',
     excerpt: 'Artificial intelligence does not have to be confusing, expensive or risky. Used correctly, it quietly makes your team faster, your decisions better, and your customers happier.',
@@ -132,9 +132,9 @@ const blogPosts: BlogPost[] = [
     ctaHref: '/#contact',
   },
   {
-    slug: 'cybersecurity-best-practices-2024',
-    title: 'Cybersecurity Best Practices for 2024: A Practical Checklist for SMEs',
-    date: 'Mar 5, 2024',
+    slug: 'cybersecurity-best-practices-2025',
+    title: 'Cybersecurity Best Practices for 2025: A Practical Checklist for SMEs',
+    date: 'Nov 17, 2025',
     readTime: '6 min read',
     category: 'Security',
     excerpt: 'Most breaches do not start with elite hackers. They start with a simple password, a fake email, or an unpatched system. the good news: disciplined basics make you a uch harder target.',
