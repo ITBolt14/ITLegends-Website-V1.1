@@ -7,10 +7,11 @@ import CybersecurityPage from './pages/Cybersecurity';
 import CloudBackupPage from './pages/CloudBackup';
 import ServerMaintenancePage from './pages/ServerMaintenance';
 import HelpdeskPage from './pages/Helpdesk';
-import BlogPage from './pages/Blog';
 import BlogPostPage from './pages/BlogPost';
 import ContactPage from './pages/Contact'; 
 import Footer from './components/Footer';
+import BlogIndexPage from './pages/BlogIndexPage';
+import { blogPosts } from './data/blogPosts';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Route path="/services/cloud-backup" element={<CloudBackupPage />} />
         <Route path="/services/server-maintenance" element={<ServerMaintenancePage />} />
         <Route path="/services/helpdesk" element={<HelpdeskPage />} />
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
@@ -361,32 +362,7 @@ function WhyPartner() {
 
 
 function BlogAndITTips() {
-  const posts = [
-    {
-      slug: 'cloud-future',
-      title: 'The Future of Cloud Computing in 2025',
-      excerpt: 'Explore the latest trends in cloud technology and how they are reshaping business infrastructure.',
-      date: 'Nov 03, 2025',
-      Catagory: 'Cloud',
-      image: '/src/assets/blog-card-cloud.webp',
-    },
-    {
-      slug: 'ai-integration-guide',
-      title: 'AI Integration: A Prectical Guide for Businesses',
-      excerpt: 'Learn how to successfully integrate artifical intelligence into your existing workflows and systems.',
-      date: 'Nov 10, 2025',
-      category: 'AI',
-      image: '/src/assets/blog-card-ai.webp',
-    },
-    {
-      slug: 'cybersecurity-best-practices-2025',
-      title: 'Cybersecurity Best Practices for 2025',
-      excerpt: 'Essential security measures every organization should implement to protect against modern threats.',
-      date: 'Nov 17, 2025',
-      category: 'Security',
-      image: '/src/assets/blog-card-security.webp',
-    },
-  ];
+  const posts = blogPosts.slice(0, 3);
 
   return (
     <section
@@ -409,7 +385,7 @@ function BlogAndITTips() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
             <BookOpen className="h-10 w-10 text-itred mr-3" />
-            <h2 className="section-title">Latest Insights</h2>
+            <h2 className="section-title">Blog & IT Tips</h2>
           </div>
           <div className="section-divider mb-8"></div>
           <p className="text-lg text-itsilver max-w-2xl mx-auto">
@@ -417,18 +393,18 @@ function BlogAndITTips() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg_grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {posts.map((post, index) => {
             const isRed = index % 2 === 0;
             return (
               <a
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className={`card-dark group cursor-pointer overflow-hidden block ${
+                className={`card-dark group cursor-pointer ${
                   isRed
                     ? 'glow-red border-itred/30 hover:border-itred/60'
                     : 'glow-blue boder-itblue/30 hover:border-itblue/60'
-                }`}
+                } block`}
               >
                 <div className="h-48 w-full overflow-hidden border-b border-itgray2">
                   <img
@@ -458,7 +434,7 @@ function BlogAndITTips() {
                         isRed ? 'text-itred group-hover:text-itblue' : 'text-itblue group-hover:text-itred'
                       }`}
                     >
-                      Read More
+                      Read Full Article
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </span>
                   </div>
@@ -466,6 +442,14 @@ function BlogAndITTips() {
               </a>
             );
           })}
+        </div>
+
+        {/* Load more blogs button */}
+        <div className="text-center">
+          <a href="/blog" className="btn-secondary inline-flex items-center justify-center">
+            Load more blogs
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>

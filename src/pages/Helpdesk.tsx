@@ -619,10 +619,10 @@ function CTASection() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="btn-primary w-full text-lg"
+          className="btn-primary w-full text-lg flex items-center justify-center gap-2"
         >
           {status === 'loading' ? 'Sending...' : 'Request a Consultation'}
-          <ChevronRight className="ml-2 h-5 w-5" />
+          <ChevronRight className="h-5 w-5" />
         </button>
 
         {status === 'success' && reference && (
