@@ -1,6 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
 import Footer from '../components/Footer';
+import blogCardCloud from '../assets/blog-card-cloud.webp';
+import blogCardAI from '../assets/blog-card-ai.webp';
+import blogCardSecurity from '../assets/blog-card-security.webp';
+import blogHero from '../assets/blog-hero.webp';
 
 type Section = {
   heading: string;
@@ -30,7 +34,7 @@ const blogPosts: BlogPost[] = [
     readTime: '7 min read',
     category: 'Cloud',
     excerpt: 'Cloud is no longer a "nice to have". It is the backbone of modern, always-on business - especially for SMEs that need flexibility, resilience, and predictable costs.',
-    image: '/src/assets/blog-card-cloud.webp',
+    image: blogCardCloud,
     sections: [
       {
         heading: '1. From Servers in the Corner to "Cloud-First" Thinking',
@@ -84,7 +88,7 @@ const blogPosts: BlogPost[] = [
     readTime: '8 min read',
     category: 'AI',
     excerpt: 'Artificial intelligence does not have to be confusing, expensive or risky. Used correctly, it quietly makes your team faster, your decisions better, and your customers happier.',
-    image: '/src/assets/blog-card-ai.webp',
+    image: blogCardAI,
     sections: [
       {
         heading: '1. Start with Pain Points, Not Tools',
@@ -138,7 +142,7 @@ const blogPosts: BlogPost[] = [
     readTime: '6 min read',
     category: 'Security',
     excerpt: 'Most breaches do not start with elite hackers. They start with a simple password, a fake email, or an unpatched system. the good news: disciplined basics make you a uch harder target.',
-    image: '/src/assets/blog-card-security.webp',
+    image: blogCardSecurity,
     sections: [
       {
         heading: '1. Strong identity: Passwords and MFA',
@@ -256,7 +260,7 @@ export default function BlogPostPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/src/assets/blog-hero.webp')"
+            backgroundImage: `url(${blogHero})`
           }}
         />
         <div className="absolute inset-0 bg-black/60" />

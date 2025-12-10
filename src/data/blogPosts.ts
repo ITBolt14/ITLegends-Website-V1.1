@@ -1,8 +1,8 @@
 // src/data/blogPosts.ts
 
-import cloudCardImg from '../assets/blog-card-cloud.webp';
-import aiCardImg from '../assets/blog-card-ai.webp';
-import securityCardImg from '../assets/blog-card-security.webp';
+import blogCardCloud from '../assets/blog-card-cloud.webp';
+import blogCardAI from '../assets/blog-card-ai.webp';
+import blogCardSecurity from '../assets/blog-card-security.webp';
 
 export type Section = {
   heading: string;
@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Cloud',
     excerpt:
       'Cloud is no longer a "nice to have". It is the backbone of modern, always-on business - especially for SMEs that need flexibility, resilience, and predictable costs.',
-    image: cloudCardImg,
+    image: blogCardCloud,
     sections: [
       {
         heading: '1. From Servers in the Corner to "Cloud-First" Thinking',
@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
     category: 'AI',
     excerpt:
       'Artificial intelligence does not have to be confusing, expensive or risky. Used correctly, it quietly makes your team faster, your decisions better, and your customers happier.',
-    image: aiCardImg,
+    image: blogCardAI,
     sections: [
       {
         heading: '1. Start with Pain Points, Not Tools',
@@ -140,7 +140,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Security',
     excerpt:
       'Most breaches do not start with elite hackers. They start with a simple password, a fake email, or an unpatched system. The good news: disciplined basics make you a much harder target.',
-    image: securityCardImg,
+    image: blogCardSecurity,
     sections: [
       {
         heading: '1. Strong identity: Passwords and MFA',
