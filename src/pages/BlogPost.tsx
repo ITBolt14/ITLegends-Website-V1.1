@@ -6,6 +6,7 @@ import blogCardAI from '../assets/blog-card-ai.webp';
 import blogCardSecurity from '../assets/blog-card-security.webp';
 import blogHero from '../assets/blog-hero.webp';
 import headerImg from '../assets/header-img.webp';
+import { useEffect } from 'react';
 
 type Section = {
   heading: string;
@@ -34,7 +35,7 @@ const blogPosts: BlogPost[] = [
     date: 'Nov 3, 2025',
     readTime: '7 min read',
     category: 'Cloud',
-    excerpt: 'Cloud is no longer a "nice to have". It is the backbone of modern, always-on business - especially for SMEs that need flexibility, resilience, and predictable costs.',
+    excerpt: 'Cloud is no longer a "nice to have". It is the backbone of modern, always-on businesses - especially for SMEs that need flexibility, resilience, and predictable costs.',
     image: blogCardCloud,
     sections: [
       {
@@ -56,7 +57,7 @@ const blogPosts: BlogPost[] = [
           'For most SMEs, a hybrid setup is the sweet spot: some services in the cloud, some kept on-site for performance, regulation or cost reasons. The key is that everything is managed as a single environment, not as two separate worlds.',
         ],
         listItems: [
-          'Centralised monitoring for both cloud and on-prem servers.',
+          'Centralised monitoring for both cloud and on-premises servers.',
           'Standardised security policies across all locations.',
           'Documented failover and recovery plans.',
         ],
@@ -142,7 +143,7 @@ const blogPosts: BlogPost[] = [
     date: 'Nov 17, 2025',
     readTime: '6 min read',
     category: 'Security',
-    excerpt: 'Most breaches do not start with elite hackers. They start with a simple password, a fake email, or an unpatched system. the good news: disciplined basics make you a uch harder target.',
+    excerpt: 'Most breaches do not start with elite hackers. They start with a simple password, a fake email, or an unpatched system. The good news: disciplined basics makes you a much harder target.',
     image: blogCardSecurity,
     sections: [
       {
@@ -212,6 +213,10 @@ function SectionDivider() {
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!post) {
     return (
