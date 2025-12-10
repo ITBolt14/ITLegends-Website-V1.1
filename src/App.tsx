@@ -11,9 +11,7 @@ import {
   MapPin,
   ChevronRight,
   Cpu,
-  BookOpen,
-  Calendar,
-  ArrowRight,
+  BookOpen
 } from 'lucide-react';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';

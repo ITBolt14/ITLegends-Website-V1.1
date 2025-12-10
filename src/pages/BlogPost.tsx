@@ -5,6 +5,7 @@ import blogCardCloud from '../assets/blog-card-cloud.webp';
 import blogCardAI from '../assets/blog-card-ai.webp';
 import blogCardSecurity from '../assets/blog-card-security.webp';
 import blogHero from '../assets/blog-hero.webp';
+import headerImg from '../assets/header-img.webp';
 
 type Section = {
   heading: string;
@@ -217,8 +218,9 @@ export default function BlogPostPage() {
       <div className="min-h-screen bg-itdark text-itsilver flex flex-col">
         <nav className="fixed top-0 w-full tech-glass z-50 border-b border-itgray2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href='/' className="text-white font-bold text-lg">
-            IT Legends
+            <a href='/' className="flex items-center spcae-x-2">
+              <img src={headerImg} alt="IT Legends Logo" className="h-10 w-auto" />
+              <span className="text-xl font-bold text-white">IT Legends</span>
             </a>
             <a
               href="/#blog"
@@ -242,8 +244,9 @@ export default function BlogPostPage() {
       {/* Top nav */}
       <nav className="fixed top-0 w-full tech-glass z-50 border-b border-itgray2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href='/' className="text-white font-bold text-lg">
-            IT Legends
+          <a href='/' className="flex items-center space-x-2">
+          <img src={headerImg} alt="IT Legends Logo" className="h-10 w-auto" />
+          <span className="text-xl font-bold text-white">IT Legends</span>
           </a>
           <a
             href="/#blog"

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, Clock, ArrowLeft, Tag, ChevronRight } from 'lucide-react';
 import Footer from '../components/Footer';
 import { blogPosts } from '../data/blogPosts';
