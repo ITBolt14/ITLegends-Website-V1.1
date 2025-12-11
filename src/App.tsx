@@ -38,6 +38,7 @@ import contactBg from './assets/contact-bg.webp';
 import headerImg from './assets/header-img.webp';
 import heroLogoImg from './assets/hero-img.webp';
 import SeoHead from './components/SeoHead';
+import CookieBanner from './components/CookieBanner';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -95,38 +96,58 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              mobileMenuOpen={mobileMenuOpen}
-              setMobileMenuOpen={setMobileMenuOpen}
-            />
-          }
-        />
-        <Route
-          path="/services/managed-it-support"
-          element={<ManagedITSupportPage />}
-        />
-        <Route
-          path="/services/hardware-network"
-          element={<HardwareNetworkPage />}
-        />
-        <Route
-          path="/services/cybersecurity"
-          element={<CybersecurityPage />}
-        />
-        <Route path="/services/cloud-backup" element={<CloudBackupPage />} />
-        <Route
-          path="/services/server-maintenance"
-          element={<ServerMaintenancePage />}
-        />
-        <Route path="/services/helpdesk" element={<HelpdeskPage />} />
-        <Route path="/blog" element={<BlogIndexPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+      <>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                mobileMenuOpen={mobileMenuOpen}
+                setMobileMenuOpen={setMobileMenuOpen}
+              />
+            }
+          />
+          <Route
+            path="/services/managed-it-support"
+            element={<ManagedITSupportPage />}
+          />
+          <Route
+            path="/services/hardware-network"
+            element={<HardwareNetworkPage />}
+          />
+          <Route
+            path="/services/cybersecurity"
+            element={<CybersecurityPage />}
+          />
+          <Route 
+            path="/services/cloud-backup" 
+            element={<CloudBackupPage />}
+          />
+          <Route
+            path="/services/server-maintenance"
+            element={<ServerMaintenancePage />}
+          />
+          <Route
+            path="/services/helpdesk" 
+            element={<HelpdeskPage />} 
+          />
+          <Route
+            path="/blog" 
+            element={<BlogIndexPage />} 
+          />
+          <Route 
+            path="/blog/:slug" 
+            element={<BlogPostPage />} 
+          />
+          <Route 
+            path="/contact" 
+            element={<ContactPage />} 
+          />
       </Routes>
+
+      {/* Cookie banner is rendered globally for all pages */}
+      <CookieBanner />
+    </>
     </BrowserRouter>
   );
 }
